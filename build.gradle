@@ -6,6 +6,8 @@ plugins {
 //  id 'nebula.lint' version '17.5.0'
 }
 
+apply from: file("/Users/eric/Projects/gradle/gradle-enterprise-build-config-samples/build-data-capturing-gradle-samples/capture-dependency-resolution/gradle-dependency-resolution.gradle")
+
 def isKotlinDev = project.hasProperty('isKotlinDev')
 
 allprojects { p ->

@@ -19,8 +19,16 @@ tasks.shadowJar {
     mergeServiceFiles()
 }
 
+configurations.all {
+    resolutionStrategy.dependencySubstitution {
+        substitute(project(":ktlint-core"))
+            .using(module("com.pinterest.ktlint:ktlint-core:0.47.1"))
+            .because("we use a stable version")
+    }
+}
+
 dependencies {
-    implementation(projects.ktlintCore)
+    implementation(project(":ktlint-core"))
     implementation(projects.ktlintReporterBaseline)
     implementation(projects.ktlintReporterCheckstyle)
     implementation(projects.ktlintReporterJson)
